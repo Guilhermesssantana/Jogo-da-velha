@@ -20,19 +20,19 @@ screen = pygame.display.set_mode((WINDOW_SIZE, WINDOW_SIZE))
 pygame.display.set_caption('Jogo da Velha')
 
 # logica do jogo
-game_board =[[' ' for _ in range(3)] for _ in range (3)]
+game_board = [[' ' for _ in range(3)] for _ in range(3)]
 current_player = 'X'
+
 def check_win(board, player):
     for row in board:
         if all(cell == player for cell in row):
             return True
     for col in range(3):
-        if all (board[row][col] == player for row in range(3)):
+        if all(board[row][col] == player for row in range(3)):
             return True
-    if all (board[i][i] == player for i in range(3)) or all (board[i][2 - i] == player for i in range(3)):
+    if all(board[i][i] == player for i in range(3)) or all(board[i][2 - i] == player for i in range(3)):
         return True
-return False
-
+    return False
 #desenho do jogo
 def draw_lines():
     for i in range(1, 3):
